@@ -70,6 +70,7 @@ def run_game():
     number_of_zombies = 0
     health = 100
     max_health = 100
+    shield_up = False
 
     while True:
         reblit()
@@ -94,6 +95,46 @@ def run_game():
             angle = math.atan2(distance_x, distance_y)
             zombie.x += math.cos(angle) * zombie.speed
             zombie.y += math.sin(angle) * zombie.speed
+
+            if zombie.health == 0:
+                zombie.died == True
+                if rand.randint(1, 5) != 4 or 5:
+                    zombie.image_file = coin
+                elif rand.randint(1, 5) != 4 or 5:
+                    zombie.image_file = bandage
+                elif rand.randint(1, 5) != 4 or 5:
+                    zombie.image_file = shield
+                else:
+                    zombie.image_file = medkit
+
+            if zombie.died == True:
+                for i in range(player_x - panda_image.get_width() / 2, player_x + panda_image.get_width()):
+                    for j in range(player_y - panda_image.get_height(), player_y + panda_image.get_height()):
+                        if zombie.x == i and zombie.y == j:
+                            pickup = zombies.pop(zombie)
+                            if pickup.image_file == coin:
+                                MONEYMONEYMONEY += 2
+                            elif pickup.image_file == bandage:
+                                health += 35
+                                if health >= max_health:
+                                    health = max_health
+                            elif pickup.image_file == shield:
+                                if shield_up:
+                                    destroy_shield_time += 5
+                                else:
+                                    destroy_shield_time = time.time() + 5
+                                    shield_up = True
+                            elif pickup.image_file == medkit:
+                                max_health += 50
+                                health = max_health
+        
+        if shield_up and time.time() < destroy_shield_time:
+            pygame.draw.circle(screen, (75, 75, 255), (player_x, player_y), 50)
+            for zombie in zombies:
+                for i in range(player_x - 50, player_x + 50):
+                    for j in range(player_y - 50, player_y + 50):
+                        if zombie.x == i and zombie.y == j:
+                            zombie.health = 0
 
         for bullet in bullets:
             bullet.move()
@@ -305,6 +346,7 @@ class Bullet:
         screen.blit(rotated_bullet, (int(self.x), int(self.y)))
 
 class Zombie:
+
     last_zombie_killed = time.time()
 
     def __init__(self, image_file, health, max_health, damage, speed, died, x, y):
