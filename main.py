@@ -9,33 +9,20 @@ from pygame.locals import QUIT
 
 pygame.init()
 
-waiting_for_user_input = pygame.image.load(
-    "Image files/Other images/waiting for user input.png")
-background = pygame.image.load(
-    "Image files/Other images/mountainsbackdrop.png")
-panda_image = pygame.image.load(
-    "Image files/Player and Zombie images/Player images/walking player 1.png")
-walking_player_1 = pygame.image.load(
-    "Image files/Player and Zombie images/Player images/walking player 1.png")
-walking_player_2 = pygame.image.load(
-    "Image files/Player and Zombie images/Player images/walking player 2.png")
-walking_player_3 = pygame.image.load(
-    "Image files/Player and Zombie images/Player images/walking player 3.png")
-walking_player_4 = pygame.image.load(
-    "Image files/Player and Zombie images/Player images/walking player 4.png")
-walking_player_5 = pygame.image.load(
-    "Image files/Player and Zombie images/Player images/walking player 5.png")
+waiting_for_user_input = pygame.image.load("Image files/Other images/waiting for user input.png")
+background = pygame.image.load("Image files/Other images/mountainsbackdrop.png")
+panda_image = pygame.image.load("Image files/Player and Zombie images/Player images/walking player 1.png")
+walking_player_1 = pygame.image.load("Image files/Player and Zombie images/Player images/walking player 1.png")
+walking_player_2 = pygame.image.load("Image files/Player and Zombie images/Player images/walking player 2.png")
+walking_player_3 = pygame.image.load("Image files/Player and Zombie images/Player images/walking player 3.png")
+walking_player_4 = pygame.image.load("Image files/Player and Zombie images/Player images/walking player 4.png")
+walking_player_5 = pygame.image.load("Image files/Player and Zombie images/Player images/walking player 5.png")
 bandage = pygame.image.load("Image files/Pickup item images/bandage.png")
 coin = pygame.image.load("Image files/Pickup item images/coin.png")
 medkit = pygame.image.load("Image files/Pickup item images/medkit.png")
 shield = pygame.image.load("Image files/Pickup item images/shield.png")
-normal_zombie = pygame.image.load(
-    "Image files/Player and Zombie images/Zombie images/original zombie.png")
-ninja_zombie = pygame.image.load(
-    "Image files/Player and Zombie images/Zombie images/ninja zombie.png")
-tank_zombie = pygame.image.load(
-    "Image files/Player and Zombie images/Zombie images/tank zombie.png")
-bullet_image = pygame.image.load("Image files/Other images/bullet.png")
+
+pygame.display.update()
 
 width = 800
 height = 512
