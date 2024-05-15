@@ -85,6 +85,8 @@ def run_game():
 
             if zombie.health == 0:
                 zombie.died = True
+                zombie.speed = 0
+                zombie.damage = 0
                 if rand.randint(1, 5) != 4 or 5:
                     zombie.image_file = coin
                 elif rand.randint(1, 5) != 4 or 5:
