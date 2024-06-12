@@ -3,7 +3,6 @@ import os
 import random as rand
 import sys
 import time
-
 import pygame
 from pygame.locals import *
 
@@ -21,14 +20,14 @@ bandage = pygame.image.load("Image files/Pickup item images/bandage.png")
 coin = pygame.image.load("Image files/Pickup item images/coin.png")
 medkit = pygame.image.load("Image files/Pickup item images/medkit.png")
 shield = pygame.image.load("Image files/Pickup item images/shield.png")
-
-pygame.display.update()
+bullet_image = pygame.image.load("Image files/Other images/bullet.png")
 
 width = 800
 height = 512
 
 screen = pygame.display.set_mode((width, height))
 pygame.display.set_caption('Zombie Shooter')
+pygame.display.update()
 
 player_speed = 1
 xposition = 0
@@ -117,7 +116,7 @@ def run_game():
                     elif pickup.image_file == medkit:
                         max_health += 50
                         health = max_health
-            
+
                     if shield_up and time.time() < destroy_shield_time:
                         pygame.draw.circle(screen, (75, 75, 255), (player_x, player_y), 50)
                         for zombie in zombies:
@@ -184,10 +183,10 @@ def run_game():
         pygame.display.update()
 
 def menu(start=False, UDIED=False):
+    global MONEYMONEYMONEY
     if UDIED:
         print("U died lol\n\nEMOTIONAL DAMAGE")
     if start:
-        global MONEYMONEYMONEY
         MONEYMONEYMONEY = 100
         print("Welcome to Panda vs Zombies!\n\n")
     screen.fill((0, 0, 0))
@@ -372,7 +371,7 @@ class KnifeSwipe:
         for zombie in zombies:
             if check_collision(self, zombie):
                 zombie.health -= self.damage
-                
+
 
 def current_weapon():
     for weapon in weapons.values():
