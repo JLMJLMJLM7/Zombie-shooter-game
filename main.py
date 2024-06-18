@@ -30,8 +30,6 @@ pygame.display.set_caption('Zombie Shooter')
 pygame.display.update()
 
 player_speed = 1
-xposition = 0
-yposition = 0
 
 zombies = []
 bullets = []
@@ -40,6 +38,8 @@ knife_damage = 10
 
 def run_game():
     global moving, firing, xposition, yposition, zombies, bullets, knifeswipes
+    xposition = 0
+    yposition = 0
     moving = False
     firing = False
 
