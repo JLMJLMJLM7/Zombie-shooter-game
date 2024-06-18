@@ -56,6 +56,7 @@ def run_game():
     number_of_zombies = 0
     health = 100
     max_health = 100
+    destroy_shield_time = 0
     shield_up = False
 
     while True:
@@ -120,10 +121,10 @@ def run_game():
                     if shield_up and time.time() < destroy_shield_time:
                         pygame.draw.circle(screen, (75, 75, 255), (player_x, player_y), 50)
                         for zombie in zombies:
-                            for i in range(player_x - 50, player_x + 50):
-                                for j in range(player_y - 50, player_y + 50):
-                                    if zombie.x == i and zombie.y == j:
-                                        zombie.health = 0
+                                    for i in range(int(player_x - 50), int(player_x + 50)):
+                                        for j in range(int(player_y - 50), int(player_y + 50)):
+                                            if zombie.x == i and zombie.y == j:
+                                                zombie.health = 0
 
         for bullet in bullets:
             bullet.move()
