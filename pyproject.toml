@@ -2,7 +2,7 @@
 name = "repl-nix-zombie-shooter-game"
 version = "0.1.0"
 description = ""
-authors = ["Your Name <you@example.com>"]
+authors = ["James McGlashan <jameslewismcglashan@gmail.com>"]
 readme = "README.md"
 packages = [{include = "repl_nix_zombie_shooter_game"}]
 

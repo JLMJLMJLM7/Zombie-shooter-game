@@ -11,18 +11,25 @@ pygame.init()
 waiting_for_user_input = pygame.image.load("Image files/Other images/waiting for user input.png")
 background = pygame.image.load("Image files/Other images/mountainsbackdrop.png")
 panda_image = pygame.image.load("Image files/Player and Zombie images/Player images/walking player 1.png")
+panda_image = pygame.transform.scale(panda_image, (25, 25))
 walking_player_1 = pygame.image.load("Image files/Player and Zombie images/Player images/walking player 1.png")
+walking_player_1 = pygame.transform.scale(walking_player_1, (25, 25))
 walking_player_2 = pygame.image.load("Image files/Player and Zombie images/Player images/walking player 2.png")
+walking_player_2 = pygame.transform.scale(walking_player_2, (25, 25))
 walking_player_3 = pygame.image.load("Image files/Player and Zombie images/Player images/walking player 3.png")
+walking_player_3 = pygame.transform.scale(walking_player_3, (25, 25))
 walking_player_4 = pygame.image.load("Image files/Player and Zombie images/Player images/walking player 4.png")
+walking_player_4 = pygame.transform.scale(walking_player_4, (25, 25))
 walking_player_5 = pygame.image.load("Image files/Player and Zombie images/Player images/walking player 5.png")
+walking_player_5 = pygame.transform.scale(walking_player_5, (25, 25))
 bandage = pygame.image.load("Image files/Pickup item images/bandage.png")
 coin = pygame.image.load("Image files/Pickup item images/coin.png")
 medkit = pygame.image.load("Image files/Pickup item images/medkit.png")
 shield = pygame.image.load("Image files/Pickup item images/shield.png")
 bullet_image = pygame.image.load("Image files/Other images/bullet.png")
+pygame.transform.scale(bullet_image, (5, 5))
 
-width = 800
+width = 512
 height = 512
 
 screen = pygame.display.set_mode((width, height))
