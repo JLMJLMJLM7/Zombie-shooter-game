@@ -37,6 +37,8 @@ pygame.display.set_caption('Zombie Shooter')
 pygame.display.update()
 
 player_speed = 1
+health = 0
+max_health = 100
 
 zombies = []
 bullets = []
@@ -308,6 +310,13 @@ def reblit():
         bullet.draw()
     for swipe in knifeswipes:
         swipe.draw()
+    pygame.draw.rect(screen, (255, 255, 255), (25, 25, max_health, 50))
+    pygame.draw.rect(screen, (255, 0, 0), (30, 30, max_health - health - 10, 40))
+    font = pygame.font.Font("freesansbold.ttf", 20)
+    current_weapon_text = font.render(f"Current weapon: {current_weapon()}", True, (255, 255, 255))
+    current_weapon_text_rect = current_weapon_text.get_rect()
+    current_weapon_text_rect.center = (width // 2, height - 25)
+    screen.blit(current_weapon_text, current_weapon_text_rect)
 
 def check_collision(obj1, obj2):
     if isinstance(obj1, Bullet):

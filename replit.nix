@@ -1,5 +1,6 @@
 {pkgs}: {
   deps = [
+    pkgs.asl
     pkgs.portmidi
     pkgs.pkg-config
     pkgs.libpng
